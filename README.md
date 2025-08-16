@@ -34,3 +34,8 @@ _Tambahkan screenshot aplikasi di sini (contoh: tampilan board, task card, dll).
 1. Clone repo ini  
    ```bash
    git clone https://github.com/username/KanbanBoard.git
+
+## 👨‍💻 Kontributor
+
+• Muhammad Hashfisyahmi Nafiisa Farizi (Developer)
+• IBM Granite AI (asisten development)
