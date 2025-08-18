@@ -155,7 +155,21 @@ function renderKanbanView() {
             return task.status === status;
         });
         
-        console.log(`Status ${status}: ${statusTasks.length} tasks found`);
+        // Sort tasks by priority: urgent first, then normal, then low
+        const priorityOrder = { urgent: 1, normal: 2, low: 3 };
+        statusTasks.sort((a, b) => {
+            const priorityA = priorityOrder[a.priority] || 999;
+            const priorityB = priorityOrder[b.priority] || 999;
+            
+            // If priorities are the same, sort by creation date (newest first)
+            if (priorityA === priorityB) {
+                return new Date(b.createdAt) - new Date(a.createdAt);
+            }
+            
+            return priorityA - priorityB;
+        });
+        
+        console.log(`Status ${status}: ${statusTasks.length} tasks found (sorted by priority)`);
         console.log(`Tasks for ${status}:`, statusTasks);
         
         // Render each task
@@ -185,6 +199,20 @@ function renderListView() {
         task.priority.toLowerCase().includes(searchQuery.toLowerCase()) ||
         task.status.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    // Sort tasks by priority: urgent first, then normal, then low
+    const priorityOrder = { urgent: 1, normal: 2, low: 3 };
+    filteredTasks.sort((a, b) => {
+        const priorityA = priorityOrder[a.priority] || 999;
+        const priorityB = priorityOrder[b.priority] || 999;
+        
+        // If priorities are the same, sort by creation date (newest first)
+        if (priorityA === priorityB) {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        }
+        
+        return priorityA - priorityB;
+    });
 
     // Calculate pagination
     const totalPages = Math.ceil(filteredTasks.length / tasksPerPage);
