@@ -27,8 +27,8 @@ KanbanBoard adalah aplikasi web sederhana yang membantu developer, mahasiswa, at
 • Saran optimasi fitur drag & drop  
 • Membantu dokumentasi dan pembuatan UI/UX  
 
-## 📸 Demo Screenshot
-_Tambahkan screenshot aplikasi di sini (contoh: tampilan board, task card, dll)._
+## 📸 Demo Program
+https://kanboard-tan.vercel.app/
 
 ## ⚙️ Cara Menjalankan
 1. Clone repo ini  
